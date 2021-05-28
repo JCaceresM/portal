@@ -1,15 +1,26 @@
 
-import React from "react";
-import { CustomResult } from "./AntDComponets/index";
+
 import "./App.less";
+// import 'antd/dist/antd.css'
+// import './css/index.css'
+import React from 'react'
+import { Provider } from 'react-redux'
+// import { ThemeProvider } from 'styled-components'
+import { ConfigProvider } from 'antd'
+import store from './store'
+import Routes from './routes'
+// import { defaultTheme } from './themes'
+import Spanish from 'antd/lib/locale/es_ES'
 function App() {
   return (
-    <CustomResult
-      status="404"
-      title="404"
-      subTitle="Sorry, the page you visited does not exist."
-      
-    />
+    <Provider store={store}>
+    {/* <ThemeProvider > */}
+      <ConfigProvider locale={Spanish}>
+        <Routes />
+      </ConfigProvider>
+    {/* </ThemeProvider> */}
+  </Provider>
+    
   );
 }
 
