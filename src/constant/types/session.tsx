@@ -19,6 +19,7 @@ type UserType = {
   created_at: string
   updated_at: string
   image: ImageType
+  pdf:any
 }
 
 type LogInType = {

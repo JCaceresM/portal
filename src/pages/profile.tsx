@@ -25,11 +25,11 @@ const profile = (): React.ReactElement => {
               marginBottom: 10,
             }}
           >
-             <CustomRow gutter={[16, 16]}>
-             <CustomCol xs={24} style={{textAlign:'center'}}>
-             <LogoComponent/>
-            </CustomCol>
-             </CustomRow>
+            <CustomRow gutter={[16, 16]}>
+              <CustomCol xs={24} style={{ textAlign: "center" }}>
+                <LogoComponent />
+              </CustomCol>
+            </CustomRow>
           </CustomLayout>
         </CustomCol>
         <CustomCol xs={24}>

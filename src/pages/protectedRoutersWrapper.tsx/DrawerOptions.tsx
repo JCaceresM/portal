@@ -7,6 +7,7 @@ import {
   CustomTooltip
 } from '../../AntDComponents'
 import { MenuOption } from '../../constant/types/modules'
+import { getSessionInfo } from '../../utils/session'
 
 
 
@@ -23,7 +24,14 @@ const getMenuItems = (userOptions: MenuOption[]) => {
         key={route.ID_MODULE}
         onClick={() => {
           if (route.MODULE_PATH) {
-            history?.push(route.MODULE_PATH, { activityId: route.ID_MODULE })
+            if (route.MODULE_PATH === '/Pensum') {
+              const [pdf] = getSessionInfo()?.pdf||[]
+              history?.push(route.MODULE_PATH, { activityId: route.ID_MODULE })
+              window.open(`http://127.0.0.1:1337${pdf?.url}`, "_blank");
+            } else {
+              history?.push(route.MODULE_PATH, { activityId: route.ID_MODULE })
+              
+            }
           }
         }}
       >

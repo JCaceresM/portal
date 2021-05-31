@@ -6,4 +6,10 @@ export const WEB_SERVICE_API_MODULES_GET_MODULES = `${WEB_SERVICE_API}/MODULES`
 export const PATH_LOGIN = '/'
 export const PATH_HOME = '/inicio'
 export const PATH_PROFILE = '/perfil'
+export const PATH_PRE_ENROLLMENT = '/HorarioPrematriculado'
+export const PATH_CLASS_SCHEDULE = '/HorarioClaseActual'
+export const PATH_SCORE = '/Calificaciones'
+export const PATH_PENSUM = '/Pensum'
+export const PATH_INSCRIPTION = '/Inscripcion'
+
       
