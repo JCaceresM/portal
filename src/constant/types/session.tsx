@@ -1,4 +1,5 @@
-import { ImageType } from "./general"
+import { ImageType } from "./images"
+
 type UserSessionType = {
   jwt: string
   user: UserType

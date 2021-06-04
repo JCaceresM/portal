@@ -26,7 +26,7 @@ try {
     
     CustomModalError({
         title:'Error',
-        content:''
+        content:response.data.message || ''
     })
     yield put(AuthLogInFailure())
     }

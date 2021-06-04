@@ -1,5 +1,7 @@
 import { Image } from "antd"
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getImagesSlide } from "../actions/images"
 import {
   CustomCarousel,
   CustomCol,
@@ -9,10 +11,16 @@ import {
   CustomTable,
 } from "../AntDComponents"
 import CustomCard from "../AntDComponents/CustomCard"
-import { getSessionInfo } from "../utils/session"
+import { StoreState } from "../constant/types/store"
 
-const home = (): React.ReactElement => {
-  const userImg = getSessionInfo()?.image
+const Home = (): React.ReactElement => {
+  const dispatch = useDispatch()
+  const { imageSlide } = useSelector((state: StoreState) => state.images)
+  useEffect(()=>{
+    dispatch(getImagesSlide())
+  },[dispatch])
+  console.log(imageSlide);
+  
   return (
     <CustomLayout
       style={{
@@ -34,19 +42,16 @@ const home = (): React.ReactElement => {
               backgroundColor: "#364d79",
             }}
           >
-            <CustomRow>
-              <CustomCol xs={24}>
-                <Image
-                  style={{ height: "240px" }}
-                  src={`http://127.0.0.1:1337${userImg.url}`}
-                />
-              </CustomCol>
-            </CustomRow>
-            <CustomRow>
-              <CustomCol xs={24}>
-                <Image style={{ height: "240px" }} src={"/assets/11.jpg"} />
-              </CustomCol>
-            </CustomRow>
+            {imageSlide?.map((item) => (
+              <CustomRow>
+                <CustomCol xs={24} style={{textAlign:'center'}}>
+                  <Image
+                    style={{ height: "240px" }}
+                    src={`http://127.0.0.1:1337${item.IMAGEN[0]?.url}`}
+                  />
+                </CustomCol>
+              </CustomRow>
+            ))}
           </CustomCarousel>
         </CustomCol>
         <CustomCol xs={6}>
@@ -95,4 +100,4 @@ const home = (): React.ReactElement => {
     </CustomLayout>
   )
 }
-export default home
+export default Home

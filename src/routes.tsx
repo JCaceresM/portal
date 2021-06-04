@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import { PATH_CLASS_SCHEDULE, PATH_HOME, PATH_INSCRIPTION, PATH_LOGIN, PATH_PENSUM, PATH_PRE_ENROLLMENT, PATH_PROFILE, PATH_SCORE } from './constant/routes'
 import classSchedule from './pages/classSchedule'
-import home from './pages/home'
+import Home from './pages/home'
 import Inscription from './pages/Inscription'
 import Login from './pages/Login'
 import Pensum from './pages/Pensum'
@@ -18,7 +18,7 @@ const Routes = (): ReactElement => {
       <Switch>
         <Route exact path={PATH_LOGIN} component={Login} />
         <ProtectedRoutesWrapper>
-        <Route exact path={PATH_HOME} component={home} />
+        <Route exact path={PATH_HOME} component={Home} />
         <Route exact path={PATH_PROFILE} component={profile} />
         <Route exact path={PATH_PRE_ENROLLMENT} component={preEnrollment} />
         <Route exact path={PATH_CLASS_SCHEDULE} component={classSchedule} />
